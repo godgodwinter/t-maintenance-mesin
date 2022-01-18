@@ -106,37 +106,6 @@ Pengaturan
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="wa_status">Notif WA type<code>*)</code></label>
-
-                            <select class="form-control  @error('wa_status') is-invalid @enderror" name="wa_status" required>
-                            @if(old('wa_status'))
-                                <option>{{old('wa_status')}}</option>
-                            @else
-
-                                <option>{{$datas->wa_status?$datas->wa_status:'Offline'}}</option>
-                            @endif
-                                <option>Offline</option>
-                                <option>Online</option>
-                            </select>
-                            @error('jk')<div class="invalid-feedback"> {{$message}}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="wa_linkon">Link Online<code>*)</code></label>
-                            <input type="text" name="wa_linkon" id="wa_linkon" class="form-control @error('wa_linkon') is-invalid @enderror" value="{{$datas->wa_linkon?$datas->wa_linkon:'http://localhost:8081/'}}" required >
-                            @error('wa_linkon')<div class="invalid-feedback"> {{$message}}</div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="wa_linkoff">Link Offline<code>*)</code></label>
-                            <input type="text" name="wa_linkoff" id="wa_linkoff" class="form-control @error('wa_linkoff') is-invalid @enderror" value="{{$datas->wa_linkoff?$datas->wa_linkoff:'http://localhost:8081/'}}" required >
-                            @error('wa_linkoff')<div class="invalid-feedback"> {{$message}}</div>
-                            @enderror
-                        </div>
-
 
 
                         </div>
@@ -214,10 +183,10 @@ Pengaturan
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('seeder.tahunpenilaian')}}" method="post" class="d-inline">
+                    {{-- <form action="{{route('seeder.tahunpenilaian')}}" method="post" class="d-inline">
                         @csrf
                         <button class="btn btn-info">Seeder Tahun Seleksi</button>
-                    </form>
+                    </form> --}}
 
 
 
@@ -231,7 +200,7 @@ Pengaturan
                         <button class="btn btn-info">Seeder Kriteria detail</button>
                     </form> --}}
 
-                    <form action="{{route('seeder.posisi')}}" method="post" class="d-inline">
+                    {{-- <form action="{{route('seeder.posisi')}}" method="post" class="d-inline">
                         @csrf
                         <button class="btn btn-info">Seeder Posisi</button>
                     </form>
@@ -257,7 +226,7 @@ Pengaturan
                     <form action="{{route('seeder.hard')}}" method="post"  class="d-inline ">
                         @csrf
                         <button class="btn btn-danger">Hard Reset</button>
-                    </form>
+                    </form> --}}
 
                     <form action="{{route('cleartemp')}}" method="post"  class="d-inline ">
                         @csrf
