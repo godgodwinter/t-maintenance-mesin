@@ -28,20 +28,20 @@
 <li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Users </span></a></li>
 
 
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Kategori </span></a></li>
+<li {{ $pages == 'kategori' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kategori')}}"><i class="fas fa-flag-checkered"></i><span>Kategori </span></a></li>
 
 
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Gedung </span></a></li>
+<li {{ $pages == 'gedung' ? 'class=active' : '' }}><a class="nav-link" href="{{route('gedung')}}"><i class="fas fa-flag-checkered"></i><span>Gedung </span></a></li>
 
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Mesin </span></a></li>
-
-
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Monitoring </span></a></li>
-
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Kerusakan </span></a></li>
+<li {{ $pages == 'mesin' ? 'class=active' : '' }}><a class="nav-link" href="{{route('mesin')}}"><i class="fas fa-flag-checkered"></i><span>Mesin </span></a></li>
 
 
-<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Maintenance </span></a></li>
+<li {{ $pages == 'monitoring' ? 'class=active' : '' }}><a class="nav-link" href="{{route('monitoring')}}"><i class="fas fa-flag-checkered"></i><span>Monitoring </span></a></li>
+
+<li {{ $pages == 'pelaporankerusakan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('pelaporankerusakan')}}"><i class="fas fa-flag-checkered"></i><span>Kerusakan </span></a></li>
+
+
+<li {{ $pages == 'maintenance' ? 'class=active' : '' }}><a class="nav-link" href="{{route('maintenance')}}"><i class="fas fa-flag-checkered"></i><span>Maintenance </span></a></li>
 
 {{-- @include('includes.sidebar_admin') --}}
 
