@@ -10,16 +10,48 @@
             <li class="menu-header">Layout 0.1</li>
 
 
+            <li {{ $pages == 'dashboard' ? 'class=active' : '' }}><a class="nav-link" href="{{ route('dashboard') }}"><i
+                class="fas fa-home"></i> <span>Dashboard</span></a></li>
+
 @if((Auth::user()->tipeuser)=='admin')
+<li
+    class="nav-item dropdown {{ $pages == 'settings' || $pages == 'resetpassword' || $pages == 'passwordujian' ? 'active' : '' }}">
+    <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
+        <span>Pengaturan</span></a>
+    <ul class="dropdown-menu">
 
-@include('includes.sidebar_admin')
+        <li {{ $pages == 'settings' ? 'class=active' : '' }}><a class="nav-link" href="{{ route('settings') }}"><i
+                    class="fas fa-cog"></i> <span>Aplikasi</span></a></li>
+    </ul>
+</li>
 
-@elseif((Auth::user()->tipeuser)=='pemain')
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Users </span></a></li>
 
-@include('includes.sidebar_pemain')
+
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Kategori </span></a></li>
+
+
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Gedung </span></a></li>
+
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Mesin </span></a></li>
+
+
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Monitoring </span></a></li>
+
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Kerusakan </span></a></li>
+
+
+<li {{ $pages == 'users' ? 'class=active' : '' }}><a class="nav-link" href="{{route('users')}}"><i class="fas fa-flag-checkered"></i><span>Maintenance </span></a></li>
+
+{{-- @include('includes.sidebar_admin') --}}
+
+@elseif((Auth::user()->tipeuser)=='operator')
+
+{{-- @include('includes.sidebar_pemain') --}}
 
 @else
-@include('includes.sidebar_pelatih')
+{{-- kepalagedung --}}
+{{-- @include('includes.sidebar_pelatih') --}}
 @endif
         </ul>
 

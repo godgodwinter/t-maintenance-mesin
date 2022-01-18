@@ -32,6 +32,29 @@ class oneseeder extends Seeder
          ]);
 
 
+        DB::table('users')->insert([
+            'name' => 'Operator',
+            'email' => 'operator@gmail.com',
+            'password' => Hash::make('operator'),
+            'tipeuser' => 'operator',
+            'nomerinduk' => '1',
+            'username' => 'operator',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+        DB::table('users')->insert([
+            'name' => 'Kepala Gedung',
+            'email' => 'kepalagedung@gmail.com',
+            'password' => Hash::make('kepalagedung'),
+            'tipeuser' => 'kepalagedung',
+            'nomerinduk' => '1',
+            'username' => 'kepalagedung',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
           //settings SEEDER
         DB::table('settings')->insert([
             'app_nama' => 'SI Maintenance Mesin',
