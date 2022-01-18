@@ -27,7 +27,7 @@ class adminuserscontroller extends Controller
     {
         #WAJIB
         $pages='users';
-        $datas=DB::table('users')->where('tipeuser','admin')
+        $datas=DB::table('users')
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.users.index',compact('datas','request','pages'));
@@ -38,13 +38,9 @@ class adminuserscontroller extends Controller
         #WAJIB
         $pages='users';
         $datas=DB::table('users')
-        ->where('tipeuser','=','admin')
         ->where('name','like',"%".$cari."%")
         ->orWhere('email','like',"%".$cari."%")
-        ->where('tipeuser','=','admin')
         ->orWhere('username','like',"%".$cari."% ")
-        ->where('tipeuser','=','admin')
-
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.users.index',compact('datas','request','pages'));
@@ -60,7 +56,6 @@ class adminuserscontroller extends Controller
     {
         // dd($request);
         $cek=DB::table('users')
-        // ->whereNull('deleted_at')
         ->where('username',$request->username)
         ->orWhere('email',$request->email)
         ->count();
@@ -69,8 +64,8 @@ class adminuserscontroller extends Controller
                     $request->validate([
                     'username'=>'required|unique:users,username',
                     'email'=>'required|unique:users,email',
-                    'password' => 'min:8|required_with:password2|same:password2',
-                    'password2' => 'min:8',
+                    'password' => 'min:3|required_with:password2|same:password2',
+                    'password2' => 'min:3',
 
                     ],
                     [
@@ -82,28 +77,27 @@ class adminuserscontroller extends Controller
             $request->validate([
                 'name'=>'required',
                 'username'=>'required',
-                'password' => 'min:8|required_with:password2|same:password2',
-                'password2' => 'min:8',
+                'password' => 'min:3|required_with:password2|same:password2',
+                'password2' => 'min:3',
 
             ],
             [
                 'nama.nama'=>'Nama harus diisi',
             ]);
 
-            DB::table('users')->insert(
+            $getid=DB::table('users')->insertGetId(
                 array(
                        'name'     =>   $request->name,
                        'email'     =>   $request->email,
                        'username'     =>   $request->username,
                        'nomerinduk'     => date('YmdHis'),
                        'password' => Hash::make($request->password),
-                       'tipeuser' => 'admin',
+                       'tipeuser' => $request->tipeuser,
                        'created_at'=>date("Y-m-d H:i:s"),
                        'updated_at'=>date("Y-m-d H:i:s")
                 ));
 
-                $datausers=DB::table('users')->where('username',$request->username)->first();
-
+                // dd($request,$getid);
 
     return redirect()->route('users')->with('status','Data berhasil tambahkan!')->with('tipe','success')->with('icon','fas fa-feather');
 
@@ -140,8 +134,8 @@ class adminuserscontroller extends Controller
         if($request->password!=null OR $request->password!=''){
 
         $request->validate([
-            'password' => 'min:8|required_with:password2|same:password2',
-            'password2' => 'min:8',
+            'password' => 'min:3|required_with:password2|same:password2',
+            'password2' => 'min:3',
         ],
         [
             'nama.required'=>'nama harus diisi',
@@ -152,6 +146,7 @@ class adminuserscontroller extends Controller
                 'username'     =>   $request->username,
                 'email'     =>   $request->email,
                 'password' => Hash::make($request->password),
+                'tipeuser' => $request->tipeuser,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);
         }else{
@@ -160,6 +155,7 @@ class adminuserscontroller extends Controller
                 'name'     =>   $request->name,
                 'username'     =>   $request->username,
                 'email'     =>   $request->email,
+                'tipeuser' => $request->tipeuser,
                'updated_at'=>date("Y-m-d H:i:s")
             ]);
 

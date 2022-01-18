@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Administrator
+Users
 @endsection
 
 @push('before-script')
@@ -59,6 +59,22 @@ Administrator
                         @error('email')<div class="invalid-feedback"> {{$message}}</div>
                         @enderror
                     </div>
+
+                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        <label for="email">Hak Akses <code></code></label>
+                            <select class="js-example-basic-single form-control-sm @error('tipeuser')
+                                is-invalid
+                            @enderror" name="tipeuser"  style="width: 75%" >
+                                <option disabled selected value=""> Pilih Hak Akses</option>
+                                <option value="admin">Admin</option>
+                                <option value="operator">Operator</option>
+                                <option value="kepalagedung">Kepala Gedung</option>
+                              </select>
+
+                          @error('tipeuser')<div class="invalid-feedback"> {{$message}}</div>
+                          @enderror
+
+                      </div>
 
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="password">Password<code></code></label>
