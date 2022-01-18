@@ -6,24 +6,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class prosespenilaian extends Model
+class monitoring extends Model
 {
-        public $table = "prosespenilaian";
+        public $table = "monitoring";
 
         use SoftDeletes;
         use HasFactory;
 
         protected $fillable = [
-            'nama',
             'tgl',
-            'tahunpenilaian_id',
+            'users_id',
         ];
 
-
-        public function tahunpenilaian()
+        public function users()
         {
-            return $this->belongsTo('App\Models\tahunpenilaian');
+            return $this->hasMany('App\Models\User');
         }
-
-
 }
