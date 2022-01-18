@@ -31,12 +31,12 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">SPK SSB Penilaian Pemain PreAlpha 1.0.21.11.16</h3>
+  <h3 align="center">SI Maintenance Mesin</h3>
 
   <p align="center">
-   SPK SSB Penilaian Pemain
+  SI Maintenance Mesin
     <br />
-    <a href="https://github.com/godgodwinter/laravel-ssb"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/godgodwinter/t-maintenance-mesin"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://treatment.baemon.web.id/">View Demo</a>
@@ -74,13 +74,13 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot-ss1]](https://github.com/godgodwinter/laravel-ssb)
-[![Product Name Screen Shot][product-screenshot-ss2]](https://github.com/godgodwinter/laravel-ssb)
-[![Product Name Screen Shot][product-screenshot-ss3]](https://github.com/godgodwinter/laravel-ssb)
-[![Product Name Screen Shot][product-screenshot-ss4]](https://github.com/godgodwinter/laravel-ssb)
-[![Product Name Screen Shot][product-screenshot-ss5]](https://github.com/godgodwinter/laravel-ssb)
+[![Product Name Screen Shot][product-screenshot-ss1]](https://github.com/godgodwinter/t-maintenance-mesin)
+[![Product Name Screen Shot][product-screenshot-ss2]](https://github.com/godgodwinter/t-maintenance-mesin)
+[![Product Name Screen Shot][product-screenshot-ss3]](https://github.com/godgodwinter/t-maintenance-mesin)
+[![Product Name Screen Shot][product-screenshot-ss4]](https://github.com/godgodwinter/t-maintenance-mesin)
+[![Product Name Screen Shot][product-screenshot-ss5]](https://github.com/godgodwinter/t-maintenance-mesin)
 
-SPK SSB Penilaian Pemain
+SI Maintenance Mesin
 
 ### Built With
 
@@ -135,7 +135,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- 1. Get a free API Key at [https://example.com](https://example.com) -->
 1. Clone the repo
    ```sh
-   git clone https://github.com/godgodwinter/laravel-ssb.git
+   git clone https://github.com/godgodwinter/t-maintenance-mesin.git
    ```
 2. Install menggunakan composer
    ```sh
@@ -165,7 +165,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 6. Jika ingin menggunakan data palsu untuk testing lanjutkan langkah 6 ini
    ```sh
-   php artisan db:seed --class=oneseeder  //untuk meload data user admin@gmail.com pass 12345678
+   php artisan db:seed   //untuk meload data user admin pass admin
    ```
    
 
@@ -193,7 +193,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 Kukuh Setya Nugraha - [@kakadlz](https://twitter.com/kakadlz) 
 Kukuh Setya Nugraha - [@kukuh.sn](https://www.instagram.com/kukuh.sn/) 
 
-Project Link: [https://github.com/godgodwinter/laravel-ssb](https://github.com/godgodwinter/laravel-ssb)
+Project Link: [https://github.com/godgodwinter/t-maintenance-mesin](https://github.com/godgodwinter/t-maintenance-mesin)
 
 
 
@@ -202,16 +202,16 @@ Project Link: [https://github.com/godgodwinter/laravel-ssb](https://github.com/g
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/godgodwinter/laravel-ssb.svg?style=for-the-badge
-[contributors-url]: https://github.com/godgodwinter/laravel-ssb/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/godgodwinter/laravel-ssb.svg?style=for-the-badge
-[forks-url]: https://github.com/godgodwinter/laravel-ssb/network/members
-[stars-shield]: https://img.shields.io/github/stars/godgodwinter/laravel-ssb.svg?style=for-the-badge
-[stars-url]: https://github.com/godgodwinter/laravel-ssb/stargazers
-[issues-shield]: https://img.shields.io/github/issues/godgodwinter/laravel-ssb.svg?style=for-the-badge
-[issues-url]: https://github.com/godgodwinter/laravel-ssb/issues
-[license-shield]: https://img.shields.io/github/license/godgodwinter/laravel-ssb.svg?style=for-the-badge
-[license-url]: https://github.com/godgodwinter/laravel-ssb/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/godgodwinter/t-maintenance-mesin.svg?style=for-the-badge
+[contributors-url]: https://github.com/godgodwinter/t-maintenance-mesin/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/godgodwinter/t-maintenance-mesin.svg?style=for-the-badge
+[forks-url]: https://github.com/godgodwinter/t-maintenance-mesin/network/members
+[stars-shield]: https://img.shields.io/github/stars/godgodwinter/t-maintenance-mesin.svg?style=for-the-badge
+[stars-url]: https://github.com/godgodwinter/t-maintenance-mesin/stargazers
+[issues-shield]: https://img.shields.io/github/issues/godgodwinter/t-maintenance-mesin.svg?style=for-the-badge
+[issues-url]: https://github.com/godgodwinter/t-maintenance-mesin/issues
+[license-shield]: https://img.shields.io/github/license/godgodwinter/t-maintenance-mesin.svg?style=for-the-badge
+[license-url]: https://github.com/godgodwinter/t-maintenance-mesin/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.instagram.com/kukuh.sn/
 [product-screenshot-ss1]: images/ss1.png
