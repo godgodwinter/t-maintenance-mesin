@@ -52,7 +52,7 @@ Beranda
             </div>
           </form>
         </div>
-        <div class="col-lg-7 z-index-2 mb-5"><img class="w-100" src="{{url('/')}}/assets/img/undraw_junior_soccer.svg" alt="..." /></div>
+        <div class="col-lg-7 z-index-2 mb-5"><img class="w-100" src="{{url('/')}}/assets/img/undraw/undraw_maintenance_re_59vn.svg" alt="..." /></div>
 
         <div class="col-lg-5 z-index-2">
             <div class="row">
@@ -66,17 +66,17 @@ Beranda
             </div>
 
             <div class="col-md-4">
-                <h5>Sebagai : Pemain</h5>
-                <label  for="inputPhone">Username : pemain</label>
+                <h5>Sebagai : Operator</h5>
+                <label  for="inputPhone">Username : operator</label>
                 <br>
-                <label  for="inputPhone">Password : pemain</label>
+                <label  for="inputPhone">Password : operator</label>
             </div>
 
             <div class="col-md-4">
-                <h5>Sebagai : Pelatih</h5>
-                <label  for="inputPhone">Username : pelatih</label>
+                <h5>Sebagai : Kepala Gedung</h5>
+                <label  for="inputPhone">Username : kepalagedung</label>
                 <br>
-                <label  for="inputPhone">Password : pelatih</label>
+                <label  for="inputPhone">Password : kepalagedung</label>
             </div>
 
         </div>

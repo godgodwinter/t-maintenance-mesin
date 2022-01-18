@@ -12,9 +12,9 @@ class admindashboardcontroller extends Controller
     public function index(){
 
         $pages='dashboard';
-        if((Auth::user()->tipeuser)=='admin'){
+        // if((Auth::user()->tipeuser)=='admin'){
             return view('pages.admin.dashboard.blank',compact('pages'));
-        }
+        // }
     }
 
 }
