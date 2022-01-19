@@ -73,7 +73,7 @@ Laporan Kerusakan
                                 <td class="text-center">{{$data->users?$data->users->name:'Data tidak ditemukan'}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <button class="btn btn-sm btn-info"> Detail</button>
+                                    <a href="{{route('pelaporankerusakan.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
                                     <x-button-edit link="{{route('pelaporankerusakan.edit',$data->id)}}" />
                                     <x-button-delete link="{{route('pelaporankerusakan.destroy',$data->id)}}" />
                                 </td>

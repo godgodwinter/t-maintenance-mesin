@@ -108,15 +108,6 @@ class adminmonitoringcontroller extends Controller
 
     }
 
-    // public function detailcari(monitoring $id,Request $request)
-    // {
-    //     // dd($id);
-    //     $pages='monitoring';
-    //     $datas=monitoringdetail::with('monitoring')->where('monitoring_id',$id->id)
-    //     ->paginate(Fungsi::paginationjml());
-    //     return view('pages.admin.monitoring.detail',compact('pages','id','datas','request'));
-
-    // }
     public function detailcreate(monitoring $id,Request $request)
     {
         // dd($id);

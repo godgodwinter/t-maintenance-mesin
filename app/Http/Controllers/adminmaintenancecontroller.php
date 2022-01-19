@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Fungsi;
 use App\Models\maintenance;
+use App\Models\maintenancedetail;
+use App\Models\pelaporankerusakandetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -96,4 +98,53 @@ class adminmaintenancecontroller extends Controller
         return redirect()->route('maintenance')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }
+    public function detail(maintenance $id,Request $request)
+   {
+       // dd($id);
+       $pages='maintenance';
+       $datas=maintenancedetail::with('maintenance')->with('pelaporankerusakandetail')->where('maintenance_id',$id->id)
+       ->paginate(Fungsi::paginationjml());
+       return view('pages.admin.maintenance.detail',compact('pages','id','datas','request'));
+
+   }
+
+   public function detailcreate(maintenance $id,Request $request)
+   {
+       // dd($id);
+       $pages='maintenance';
+       $mesin=pelaporankerusakandetail::with('mesin')->get();
+       return view('pages.admin.maintenance.detailcreate',compact('pages','id','mesin','request'));
+
+   }
+   public function detailstore(maintenance $id,Request $request)
+   {
+
+       // dd($request);
+           $request->validate([
+               'keterangan'=>'required',
+
+           ],
+           [
+               'keterangan.required'=>'keterangan harus diisi',
+           ]);
+           $getmesin_id=pelaporankerusakandetail::where('id',$request->pelaporankerusakandetail_id)->first();
+           $getid=DB::table('maintenancedetail')->insertGetId(
+               array(
+                       'maintenance_id'     =>   $id->id,
+                      'pelaporankerusakandetail_id'     =>   $request->pelaporankerusakandetail_id,
+                      'mesin_id'     =>   $getmesin_id->mesin_id,
+                      'keterangan'     =>   $request->keterangan,
+                      'created_at'=>date("Y-m-d H:i:s"),
+                      'updated_at'=>date("Y-m-d H:i:s")
+               ));
+
+   return redirect()->route('maintenance.detail',$id->id)->with('status','Data berhasil tambahkan!')->with('tipe','success')->with('icon','fas fa-feather');
+
+   }
+   public function detaildestroy(maintenance $id,maintenancedetail $maintenancedetail){
+
+       maintenancedetail::destroy($maintenancedetail->id);
+       return redirect()->route('maintenance.detail',$id->id)->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
+
+   }
 }

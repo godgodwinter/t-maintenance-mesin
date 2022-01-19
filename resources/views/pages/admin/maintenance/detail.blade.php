@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Maintenance
+Maintenance "{{Fungsi::tanggalindo($id->tgl)}}" - {{$id->users->name}}
 @endsection
 
 @push('before-script')
@@ -28,21 +28,21 @@ Maintenance
             <div class="card-body">
 
 
-                        <form action="{{ route('maintenance.cari') }}" method="GET">
+                        {{-- <form action="{{ route('maintenance.detail.cari',$id->id) }}" method="GET"> --}}
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
-                            <input type="text" class="babeng babeng-select  ml-0" name="cari">
+                            {{-- <input type="text" class="babeng babeng-select  ml-0" name="cari"> --}}
                                 </div>
 
                                 <div class="p-2 bd-highlight">
-                                <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
-                                    value="Cari">
+                                {{-- <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
+                                    value="Cari"> --}}
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('maintenance.create')}}"></x-button-create>
-                        </form>
+                                <x-button-create link="{{route('maintenance.detail.create',$id->id)}}"></x-button-create>
+                        {{-- </form> --}}
 
                     </div>
                 </div>
@@ -56,8 +56,8 @@ Maintenance
                     <thead>
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
-                            <th >Tanggal maintenance</th>
-                            <th class="text-center">Nama Petugas</th>
+                            <th >Mesin</th>
+                            <th class="text-center">Keterangan</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -68,14 +68,12 @@ Maintenance
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                    {{Fungsi::tanggalindo($data->tgl)}}
+                                    {{$data->mesin?$data->mesin->nama.' - '.$data->pelaporankerusakandetail->keterangan:'Data tidak ditemukan'}}
                                 </td>
-                                <td class="text-center">{{$data->users?$data->users->name:'Data tidak ditemukan'}}</td>
+                                <td class="text-center">{{$data->keterangan}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <a href="{{route('maintenance.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
-                                    <x-button-edit link="{{route('maintenance.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('maintenance.destroy',$data->id)}}" />
+                                    <x-button-delete link="{{route('maintenance.detail.destroy',[$id->id,$data->id])}}" />
                                 </td>
                             </tr>
                         @empty

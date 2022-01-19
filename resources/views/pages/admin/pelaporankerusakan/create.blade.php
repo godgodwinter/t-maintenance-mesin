@@ -46,7 +46,7 @@ Laporan Kerusakan
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="users_id">Petugas <code>*)</code></label>
 
-                            <select class="js-example-basic-single form-control-sm @error('users_id')
+                            <select required class="js-example-basic-single form-control-sm @error('users_id')
                                 is-invalid
                             @enderror" name="users_id"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Petugas</option>

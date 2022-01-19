@@ -15,7 +15,7 @@ class CreateMaintenancedetailTable extends Migration
     {
         Schema::create('maintenancedetail', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('perlaporankerusakan_id');
+            $table->string('pelaporankerusakandetail_id');
             $table->string('maintenance_id');
             $table->string('mesin_id');
             $table->string('keterangan')->nullable();

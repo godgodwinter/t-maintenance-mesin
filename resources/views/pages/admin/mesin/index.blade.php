@@ -89,6 +89,22 @@ Mesin
                                             $warna='danger';
                                         }
                                     }
+
+
+                                    $jmlkerusakan=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+
+                                    $jmlperbaikan=\App\Models\maintenancedetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+
+                                    if(($jmlkerusakan-$jmlperbaikan)>0){
+                                            $status='Sedang Diperbaiki';
+                                            $warna='success';
+                                    }
+                                    if(($jmlkerusakan-$jmlperbaikan)==0){
+                                            $status='Baik';
+                                            $warna='info';
+                                    }
+
+
                                     $lastmonitoring='-';
                                     $petugas='';
                                     $oleh='';
@@ -100,7 +116,9 @@ Mesin
                                     $oleh='-';
                                     }
                                 @endphp
-                                <td class="text-center"><button class="btn btn-sm btn-{{$warna}}">{{$status}}</button></td>
+                                <td class="text-center"><button class="btn btn-sm btn-{{$warna}}">{{$status}}
+                                    {{-- {{$jmlkerusakan}} / {{$jmlperbaikan}} --}}
+                                </button></td>
                                 <td class="text-center">{{$lastmonitoring}} {{$oleh}} {{$petugas}}</td>
 
                                 <td class="text-center babeng-min-row">

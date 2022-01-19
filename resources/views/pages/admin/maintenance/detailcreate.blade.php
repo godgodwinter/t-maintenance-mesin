@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Tambah Monitoring Detail
+Tambah Maintenance
 @endsection
 
 @push('before-script')
@@ -18,7 +18,7 @@ Tambah Monitoring Detail
         <h1>@yield('title')</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{route('dashboard')}}">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="{{route('monitoring')}}">@yield('title')</a></div>
+            <div class="breadcrumb-item"><a href="{{route('maintenance')}}">@yield('title')</a></div>
             <div class="breadcrumb-item">Tambah</div>
         </div>
     </div>
@@ -30,7 +30,7 @@ Tambah Monitoring Detail
             </div>
             <div class="card-body">
 
-                <form action="{{route('monitoring.detail.store',$id->id)}}" method="post">
+                <form action="{{route('maintenance.detail.store',$id->id)}}" method="post">
                     @csrf
 
                     <div class="row">
@@ -38,18 +38,18 @@ Tambah Monitoring Detail
 
 
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="mesin_id">Mesin <code>*)</code></label>
+                        <label for="pelaporankerusakandetail_id">Mesin <code>*)</code></label>
 
-                            <select required class="js-example-basic-single form-control-sm @error('mesin_id')
+                            <select class="js-example-basic-single form-control-sm @error('pelaporankerusakandetail_id')
                                 is-invalid
-                            @enderror" name="mesin_id"  style="width: 75%" >
+                            @enderror" name="pelaporankerusakandetail_id"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Mesin</option>
                                 @foreach ($mesin as $t)
-                                    <option value="{{ $t->id }}"> {{ $t->nama }}</option>
+                                    <option value="{{ $t->id }}"> {{ $t->mesin?$t->mesin->nama. ' - '. $t->keterangan :'Data tidak ditemukan' }}</option>
                                 @endforeach
                               </select>
 
-                          @error('kategori_id')<div class="invalid-feedback"> {{$message}}</div>
+                          @error('pelaporankerusakandetail_id')<div class="invalid-feedback"> {{$message}}</div>
                           @enderror
 
                       </div>
@@ -57,20 +57,17 @@ Tambah Monitoring Detail
                       <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="keterangan">Keterangan <code>*)</code></label>
 
-                            <select required class="js-example-basic-single form-control-sm @error('keterangan')
+                            <select class="js-example-basic-single form-control-sm @error('keterangan')
                                 is-invalid
                             @enderror" name="keterangan"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Keterangan</option>
-                                <option>Baik</option>
-                                <option>Rusak</option>
-                                <option>Hilang</option>
+                                <option>Telah diperbaiki</option>
                               </select>
 
                           @error('keterangan')<div class="invalid-feedback"> {{$message}}</div>
                           @enderror
 
                       </div>
-
 
 
                     </div>

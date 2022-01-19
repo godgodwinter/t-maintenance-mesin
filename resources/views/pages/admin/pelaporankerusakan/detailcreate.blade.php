@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Maintenance
+Tambah pelaporankerusakan Detail
 @endsection
 
 @push('before-script')
@@ -18,7 +18,7 @@ Maintenance
         <h1>@yield('title')</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{route('dashboard')}}">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="{{route('maintenance')}}">@yield('title')</a></div>
+            <div class="breadcrumb-item"><a href="{{route('pelaporankerusakan')}}">@yield('title')</a></div>
             <div class="breadcrumb-item">Tambah</div>
         </div>
     </div>
@@ -30,28 +30,22 @@ Maintenance
             </div>
             <div class="card-body">
 
-                <form action="{{route('maintenance.store')}}" method="post">
+                <form action="{{route('pelaporankerusakan.detail.store',$id->id)}}" method="post">
                     @csrf
 
                     <div class="row">
 
-                    <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="tgl">Tanggal maintenance <code>*)</code></label>
-                        <input type="date" name="tgl" id="tgl" class="form-control @error('tgl') is-invalid @enderror" value="{{old('tgl')?old('tgl'):date('Y-m-d')}}" required>
-                        @error('tgl')<div class="invalid-feedback"> {{$message}}</div>
-                        @enderror
-                    </div>
 
 
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                        <label for="users_id">Petugas <code>*)</code></label>
+                        <label for="mesin_id">Mesin <code>*)</code></label>
 
-                            <select required class="js-example-basic-single form-control-sm @error('users_id')
+                            <select class="js-example-basic-single form-control-sm @error('mesin_id')
                                 is-invalid
-                            @enderror" name="users_id"  style="width: 75%" >
-                                <option disabled selected value=""> Pilih Petugas</option>
-                                @foreach ($users as $t)
-                                    <option value="{{ $t->id }}"> {{ $t->name }}</option>
+                            @enderror" name="mesin_id"  style="width: 75%" required>
+                                <option disabled selected value=""> Pilih Mesin</option>
+                                @foreach ($mesin as $t)
+                                    <option value="{{ $t->id }}"> {{ $t->mesin?$t->mesin->nama:'Data tidak ditemukan' }}</option>
                                 @endforeach
                               </select>
 
@@ -61,6 +55,12 @@ Maintenance
                       </div>
 
 
+                      <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        <label for="keterangan">Detail Kerusakan <code>*)</code></label>
+                        <input type="text" name="keterangan" id="keterangan" class="form-control @error('keterangan') is-invalid @enderror" value="{{old('keterangan')}}" required>
+                        @error('keterangan')<div class="invalid-feedback"> {{$message}}</div>
+                        @enderror
+                    </div>
 
 
                     </div>

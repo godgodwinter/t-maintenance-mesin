@@ -112,7 +112,6 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/admin/monitoring/{id}/detail', [adminmonitoringcontroller::class, 'detail'])->name('monitoring.detail');
     Route::get('/admin/monitoring/{id}/detail/create', [adminmonitoringcontroller::class, 'detailcreate'])->name('monitoring.detail.create');
     Route::post('/admin/monitoring/{id}/detail/store', [adminmonitoringcontroller::class, 'detailstore'])->name('monitoring.detail.store');
-    // Route::get('/admin/monitoring/{id}/detail/cari', [adminmonitoringcontroller::class, 'detailcari'])->name('monitoring.detail.cari');
     Route::delete('/admin/monitoring/{id}/detail/destroy/{monitoringdetail}', [adminmonitoringcontroller::class, 'detaildestroy'])->name('monitoring.detail.destroy');
 
 
@@ -124,6 +123,10 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/admin/datapelaporankerusakan/cari', [adminpelaporankerusakancontroller::class, 'cari'])->name('pelaporankerusakan.cari');
     Route::get('/admin/datapelaporankerusakan/create', [adminpelaporankerusakancontroller::class, 'create'])->name('pelaporankerusakan.create');
     Route::post('/admin/datapelaporankerusakan', [adminpelaporankerusakancontroller::class, 'store'])->name('pelaporankerusakan.store');
+    Route::get('/admin/pelaporankerusakan/{id}/detail', [adminpelaporankerusakancontroller::class, 'detail'])->name('pelaporankerusakan.detail');
+    Route::get('/admin/pelaporankerusakan/{id}/detail/create', [adminpelaporankerusakancontroller::class, 'detailcreate'])->name('pelaporankerusakan.detail.create');
+    Route::post('/admin/pelaporankerusakan/{id}/detail/store', [adminpelaporankerusakancontroller::class, 'detailstore'])->name('pelaporankerusakan.detail.store');
+    Route::delete('/admin/pelaporankerusakan/{id}/detail/destroy/{pelaporankerusakandetail}', [adminpelaporankerusakancontroller::class, 'detaildestroy'])->name('pelaporankerusakan.detail.destroy');
 
 
     //maintenance
@@ -134,6 +137,10 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/admin/datamaintenance/cari', [adminmaintenancecontroller::class, 'cari'])->name('maintenance.cari');
     Route::get('/admin/datamaintenance/create', [adminmaintenancecontroller::class, 'create'])->name('maintenance.create');
     Route::post('/admin/datamaintenance', [adminmaintenancecontroller::class, 'store'])->name('maintenance.store');
+    Route::get('/admin/maintenance/{id}/detail', [adminmaintenancecontroller::class, 'detail'])->name('maintenance.detail');
+    Route::get('/admin/maintenance/{id}/detail/create', [adminmaintenancecontroller::class, 'detailcreate'])->name('maintenance.detail.create');
+    Route::post('/admin/maintenance/{id}/detail/store', [adminmaintenancecontroller::class, 'detailstore'])->name('maintenance.detail.store');
+    Route::delete('/admin/maintenance/{id}/detail/destroy/{maintenancedetail}', [adminmaintenancecontroller::class, 'detaildestroy'])->name('maintenance.detail.destroy');
 
     //API
     Route::get('/admin/api/kriteriadetail/{tahunpenilaian}', [admintahunpenilaiandetailcontroller::class, 'apikriteriadetail'])->name('api.kriteriadetail');
