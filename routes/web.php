@@ -109,6 +109,11 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/admin/datamonitoring/cari', [adminmonitoringcontroller::class, 'cari'])->name('monitoring.cari');
     Route::get('/admin/datamonitoring/create', [adminmonitoringcontroller::class, 'create'])->name('monitoring.create');
     Route::post('/admin/datamonitoring', [adminmonitoringcontroller::class, 'store'])->name('monitoring.store');
+    Route::get('/admin/monitoring/{id}/detail', [adminmonitoringcontroller::class, 'detail'])->name('monitoring.detail');
+    Route::get('/admin/monitoring/{id}/detail/create', [adminmonitoringcontroller::class, 'detailcreate'])->name('monitoring.detail.create');
+    Route::post('/admin/monitoring/{id}/detail/store', [adminmonitoringcontroller::class, 'detailstore'])->name('monitoring.detail.store');
+    // Route::get('/admin/monitoring/{id}/detail/cari', [adminmonitoringcontroller::class, 'detailcari'])->name('monitoring.detail.cari');
+    Route::delete('/admin/monitoring/{id}/detail/destroy/{monitoringdetail}', [adminmonitoringcontroller::class, 'detaildestroy'])->name('monitoring.detail.destroy');
 
 
     //pelaporankerusakan

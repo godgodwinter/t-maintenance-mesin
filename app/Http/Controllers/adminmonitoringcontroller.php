@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Fungsi;
+use App\Models\mesin;
 use App\Models\monitoring;
+use App\Models\monitoringdetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -96,4 +98,62 @@ class adminmonitoringcontroller extends Controller
         return redirect()->route('monitoring')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }
+     public function detail(monitoring $id,Request $request)
+    {
+        // dd($id);
+        $pages='monitoring';
+        $datas=monitoringdetail::with('monitoring')->where('monitoring_id',$id->id)
+        ->paginate(Fungsi::paginationjml());
+        return view('pages.admin.monitoring.detail',compact('pages','id','datas','request'));
+
+    }
+
+    // public function detailcari(monitoring $id,Request $request)
+    // {
+    //     // dd($id);
+    //     $pages='monitoring';
+    //     $datas=monitoringdetail::with('monitoring')->where('monitoring_id',$id->id)
+    //     ->paginate(Fungsi::paginationjml());
+    //     return view('pages.admin.monitoring.detail',compact('pages','id','datas','request'));
+
+    // }
+    public function detailcreate(monitoring $id,Request $request)
+    {
+        // dd($id);
+        $pages='monitoring';
+        $mesin=mesin::get();
+        return view('pages.admin.monitoring.detailcreate',compact('pages','id','mesin','request'));
+
+    }
+    public function detailstore(monitoring $id,Request $request)
+    {
+
+        // dd($request);
+            $request->validate([
+                'keterangan'=>'required',
+
+            ],
+            [
+                'keterangan.required'=>'keterangan harus diisi',
+            ]);
+
+            $getid=DB::table('monitoringdetail')->insertGetId(
+                array(
+                        'monitoring_id'     =>   $id->id,
+                       'mesin_id'     =>   $request->mesin_id,
+                       'keterangan'     =>   $request->keterangan,
+                       'created_at'=>date("Y-m-d H:i:s"),
+                       'updated_at'=>date("Y-m-d H:i:s")
+                ));
+
+    return redirect()->route('monitoring.detail',$id->id)->with('status','Data berhasil tambahkan!')->with('tipe','success')->with('icon','fas fa-feather');
+
+    }
+    public function detaildestroy(monitoring $id,monitoringdetail $monitoringdetail){
+
+        monitoringdetail::destroy($monitoringdetail->id);
+        return redirect()->route('monitoring.detail',$id->id)->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
+
+    }
+
 }
