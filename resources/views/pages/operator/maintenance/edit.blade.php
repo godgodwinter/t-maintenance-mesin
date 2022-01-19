@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Laporan Kerusakan
+Maintenance
 @endsection
 
 @push('before-script')
@@ -18,7 +18,7 @@ Laporan Kerusakan
         <h1>@yield('title')</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="{{route('dashboard')}}">Dashboard</a></div>
-            <div class="breadcrumb-item"><a href="{{route('pelaporankerusakan')}}">@yield('title')</a></div>
+            <div class="breadcrumb-item"><a href="{{route('maintenance')}}">@yield('title')</a></div>
             <div class="breadcrumb-item">Tambah</div>
         </div>
     </div>
@@ -30,21 +30,21 @@ Laporan Kerusakan
             </div>
             <div class="card-body">
 
-                <form action="{{route('pelaporankerusakan.update',$id->id)}}" method="post">
+                <form action="{{route('operator.maintenance.update',$id->id)}}" method="post">
                     @method('put')
                     @csrf
 
                     <div class="row">
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
-                            <label for="tgl">Tanggal pelaporankerusakan <code>*)</code></label>
+                            <label for="tgl">Tanggal maintenance <code>*)</code></label>
                             <input type="date" name="tgl" id="tgl" class="form-control @error('tgl') is-invalid @enderror" value="{{old('tgl')?old('tgl'):$id->tgl}}" required>
                             @error('tgl')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
                         </div>
 
 
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="users_id">Petugas <code>*)</code></label>
 
                                 <select class="js-example-basic-single form-control-sm @error('users_id')
@@ -59,7 +59,7 @@ Laporan Kerusakan
                               @error('kategori_id')<div class="invalid-feedback"> {{$message}}</div>
                               @enderror
 
-                          </div>
+                          </div> --}}
 
 
 

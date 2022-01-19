@@ -28,7 +28,7 @@ Laporan Kerusakan
             <div class="card-body">
 
 
-                        {{-- <form action="{{ route('pelaporankerusakan.cari') }}" method="GET"> --}}
+                        {{-- <form action="{{ route('operator.pelaporankerusakan.cari') }}" method="GET"> --}}
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Laporan Kerusakan
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('pelaporankerusakan.create')}}"></x-button-create>
+                                <x-button-create link="{{route('operator.pelaporankerusakan.create')}}"></x-button-create>
                         {{-- </form> --}}
 
                     </div>
@@ -73,9 +73,9 @@ Laporan Kerusakan
                                 <td class="text-center">{{$data->users?$data->users->name:'Data tidak ditemukan'}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <a href="{{route('pelaporankerusakan.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
-                                    <x-button-edit link="{{route('pelaporankerusakan.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('pelaporankerusakan.destroy',$data->id)}}" />
+                                    <a href="{{route('operator.pelaporankerusakan.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
+                                    <x-button-edit link="{{route('operator.pelaporankerusakan.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('operator.pelaporankerusakan.destroy',$data->id)}}" />
                                 </td>
                             </tr>
                         @empty

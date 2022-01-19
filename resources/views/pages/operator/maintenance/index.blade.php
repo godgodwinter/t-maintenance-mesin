@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Laporan Kerusakan
+Maintenance
 @endsection
 
 @push('before-script')
@@ -28,7 +28,7 @@ Laporan Kerusakan
             <div class="card-body">
 
 
-                        {{-- <form action="{{ route('pelaporankerusakan.cari') }}" method="GET"> --}}
+                        {{-- <form action="{{ route('maintenance.cari') }}" method="GET"> --}}
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Laporan Kerusakan
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('pelaporankerusakan.create')}}"></x-button-create>
+                                <x-button-create link="{{route('operator.maintenance.create')}}"></x-button-create>
                         {{-- </form> --}}
 
                     </div>
@@ -56,7 +56,7 @@ Laporan Kerusakan
                     <thead>
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
-                            <th >Tanggal Pelaporan Kerusakan</th>
+                            <th >Tanggal maintenance</th>
                             <th class="text-center">Nama Petugas</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
@@ -73,9 +73,9 @@ Laporan Kerusakan
                                 <td class="text-center">{{$data->users?$data->users->name:'Data tidak ditemukan'}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <a href="{{route('pelaporankerusakan.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
-                                    <x-button-edit link="{{route('pelaporankerusakan.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('pelaporankerusakan.destroy',$data->id)}}" />
+                                    <a href="{{route('operator.maintenance.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
+                                    <x-button-edit link="{{route('operator.maintenance.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('operator.maintenance.destroy',$data->id)}}" />
                                 </td>
                             </tr>
                         @empty

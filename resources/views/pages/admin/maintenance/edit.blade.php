@@ -38,7 +38,7 @@ Maintenance
 
                         <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="tgl">Tanggal maintenance <code>*)</code></label>
-                            <input type="date" name="tgl" id="tgl" class="form-control @error('tgl') is-invalid @enderror" value="{{old('tgl')?old('tgl'):date('Y-m-d')}}" required>
+                            <input type="date" name="tgl" id="tgl" class="form-control @error('tgl') is-invalid @enderror" value="{{old('tgl')?old('tgl'):$id->tgl}}" required>
                             @error('tgl')<div class="invalid-feedback"> {{$message}}</div>
                             @enderror
                         </div>

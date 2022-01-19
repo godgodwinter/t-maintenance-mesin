@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Laporan Kerusakan
+Pelaporan Kerusakan "{{Fungsi::tanggalindo($id->tgl)}}" - {{$id->users->name}}
 @endsection
 
 @push('before-script')
@@ -28,7 +28,7 @@ Laporan Kerusakan
             <div class="card-body">
 
 
-                        {{-- <form action="{{ route('pelaporankerusakan.cari') }}" method="GET"> --}}
+                        {{-- <form action="{{ route('pelaporankerusakan.detail.cari',$id->id) }}" method="GET"> --}}
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Laporan Kerusakan
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('pelaporankerusakan.create')}}"></x-button-create>
+                                <x-button-create link="{{route('pelaporankerusakan.detail.create',$id->id)}}"></x-button-create>
                         {{-- </form> --}}
 
                     </div>
@@ -56,8 +56,8 @@ Laporan Kerusakan
                     <thead>
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
-                            <th >Tanggal Pelaporan Kerusakan</th>
-                            <th class="text-center">Nama Petugas</th>
+                            <th >Mesin</th>
+                            <th class="text-center">Keterangan</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -68,14 +68,12 @@ Laporan Kerusakan
 
                                     {{ ((($loop->index)+1)+(($datas->currentPage()-1)*$datas->perPage())) }}</td>
                                 <td>
-                                    {{Fungsi::tanggalindo($data->tgl)}}
+                                    {{$data->mesin?$data->mesin->nama:'Data tidak ditemukan'}}
                                 </td>
-                                <td class="text-center">{{$data->users?$data->users->name:'Data tidak ditemukan'}}</td>
+                                <td class="text-center">{{$data->keterangan}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <a href="{{route('pelaporankerusakan.detail',$data->id)}}" class="btn btn-sm btn-info"> Detail</a>
-                                    <x-button-edit link="{{route('pelaporankerusakan.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('pelaporankerusakan.destroy',$data->id)}}" />
+                                    <x-button-delete link="{{route('pelaporankerusakan.detail.destroy',[$id->id,$data->id])}}" />
                                 </td>
                             </tr>
                         @empty

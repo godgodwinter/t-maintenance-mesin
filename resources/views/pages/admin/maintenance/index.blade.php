@@ -28,21 +28,21 @@ Maintenance
             <div class="card-body">
 
 
-                        <form action="{{ route('maintenance.cari') }}" method="GET">
+                        {{-- <form action="{{ route('maintenance.cari') }}" method="GET"> --}}
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
-                            <input type="text" class="babeng babeng-select  ml-0" name="cari">
+                            {{-- <input type="text" class="babeng babeng-select  ml-0" name="cari"> --}}
                                 </div>
 
                                 <div class="p-2 bd-highlight">
-                                <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
-                                    value="Cari">
+                                {{-- <input class="btn btn-info ml-1 mt-2 mt-sm-0" type="submit" id="babeng-submit"
+                                    value="Cari"> --}}
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
                                 <x-button-create link="{{route('maintenance.create')}}"></x-button-create>
-                        </form>
+                        {{-- </form> --}}
 
                     </div>
                 </div>
