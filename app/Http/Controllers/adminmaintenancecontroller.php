@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Fungsi;
 use App\Models\maintenance;
 use App\Models\maintenancedetail;
+use App\Models\mesin;
 use App\Models\pelaporankerusakandetail;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class adminmaintenancecontroller extends Controller
 {
+    protected $queryid;
     public function index(Request $request)
     {
         #WAJIB
@@ -112,7 +114,14 @@ class adminmaintenancecontroller extends Controller
    {
        // dd($id);
        $pages='maintenance';
-       $mesin=pelaporankerusakandetail::with('mesin')->get();
+    //    $mesin=pelaporankerusakandetail::with('mesin')->get();
+
+       $this->queryid=$id->id;
+       $pages='monitoring';
+       $mesin=pelaporankerusakandetail::with('mesin')->whereNotIn('id',function($query){
+               $query->select('pelaporankerusakandetail_id')->from('maintenancedetail')->where('maintenance_id',$this->queryid)->whereNull('deleted_at');
+           })->get();
+        //    dd($mesin);
        return view('pages.admin.maintenance.detailcreate',compact('pages','id','mesin','request'));
 
    }

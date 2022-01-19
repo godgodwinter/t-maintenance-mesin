@@ -40,7 +40,7 @@ Tambah Maintenance
                     <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="pelaporankerusakandetail_id">Mesin <code>*)</code></label>
 
-                            <select class="js-example-basic-single form-control-sm @error('pelaporankerusakandetail_id')
+                            <select required class="js-example-basic-single form-control-sm @error('pelaporankerusakandetail_id')
                                 is-invalid
                             @enderror" name="pelaporankerusakandetail_id"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Mesin</option>
@@ -57,7 +57,7 @@ Tambah Maintenance
                       <div class="form-group col-md-5 col-5 mt-0 ml-5">
                         <label for="keterangan">Keterangan <code>*)</code></label>
 
-                            <select class="js-example-basic-single form-control-sm @error('keterangan')
+                            <select required class="js-example-basic-single form-control-sm @error('keterangan')
                                 is-invalid
                             @enderror" name="keterangan"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Keterangan</option>

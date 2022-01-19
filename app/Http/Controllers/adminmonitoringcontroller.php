@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class adminmonitoringcontroller extends Controller
 {
+    protected $queryid;
     public function index(Request $request)
     {
         #WAJIB
@@ -111,8 +112,12 @@ class adminmonitoringcontroller extends Controller
     public function detailcreate(monitoring $id,Request $request)
     {
         // dd($id);
+        $this->queryid=$id->id;
         $pages='monitoring';
-        $mesin=mesin::get();
+        $mesin=mesin::whereNotIn('id',function($query){
+                $query->select('mesin_id')->from('monitoringdetail')->where('monitoring_id',$this->queryid);
+            })->get();
+            // dd($mesin);
         return view('pages.admin.monitoring.detailcreate',compact('pages','id','mesin','request'));
 
     }

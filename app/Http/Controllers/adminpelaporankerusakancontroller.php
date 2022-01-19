@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class adminpelaporankerusakancontroller extends Controller
 {
+    protected $queryid;
     public function index(Request $request)
     {
         #WAJIB
@@ -114,6 +115,12 @@ class adminpelaporankerusakancontroller extends Controller
        // dd($id);
        $pages='pelaporankerusakan';
        $mesin=monitoringdetail::with('mesin')->where('keterangan','Rusak')->get();
+
+    //    $this->queryid=$id->id;
+    //    $pages='monitoring';
+    //    $mesin=monitoringdetail::whereNotIn('id',function($query){
+    //            $query->select('mesin_id')->from('monitoringdetail')->where('monitoring_id',$this->queryid);
+    //        })->get();
        return view('pages.admin.pelaporankerusakan.detailcreate',compact('pages','id','mesin','request'));
 
    }
