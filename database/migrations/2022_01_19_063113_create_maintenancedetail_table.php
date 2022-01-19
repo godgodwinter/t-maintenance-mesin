@@ -18,6 +18,7 @@ class CreateMaintenancedetailTable extends Migration
             $table->string('maintenance_id');
             $table->string('mesin_id');
             $table->string('keterangan')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

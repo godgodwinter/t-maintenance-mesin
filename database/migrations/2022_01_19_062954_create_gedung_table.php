@@ -17,6 +17,7 @@ class CreateGedungTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('lantai');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

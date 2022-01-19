@@ -18,6 +18,7 @@ class CreateMonitoringdetailTable extends Migration
             $table->string('monitoring_id');
             $table->string('mesin_id');
             $table->string('keterangan')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

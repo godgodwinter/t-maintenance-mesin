@@ -17,6 +17,7 @@ class CreatePelaporankerusakandetailTable extends Migration
             $table->bigIncrements('id');
             $table->string('pelaporankerusakan_id');
             $table->string('keterangan')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

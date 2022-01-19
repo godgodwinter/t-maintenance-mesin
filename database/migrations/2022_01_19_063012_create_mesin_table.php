@@ -18,6 +18,7 @@ class CreateMesinTable extends Migration
             $table->string('nama');
             $table->string('kategori_id');
             $table->string('gedung_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

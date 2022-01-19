@@ -18,6 +18,7 @@ class CreateMaintenanceTable extends Migration
             $table->string('tgl');
             $table->string('perlaporan_id');
             $table->string('users_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

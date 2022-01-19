@@ -17,6 +17,7 @@ class CreatePelaporankerusakanTable extends Migration
             $table->bigIncrements('id');
             $table->string('tgl');
             $table->string('users_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
