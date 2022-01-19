@@ -9,7 +9,6 @@ use App\Models\mesin;
 use App\Models\pelaporankerusakandetail;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class adminmaintenancecontroller extends Controller
@@ -19,7 +18,7 @@ class adminmaintenancecontroller extends Controller
     {
         #WAJIB
         $pages='maintenance';
-        $datas=maintenance::with('users')->where('users_id',Auth::user()->id)
+        $datas=maintenance::with('users')
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.maintenance.index',compact('datas','request','pages'));
@@ -30,7 +29,7 @@ class adminmaintenancecontroller extends Controller
         #WAJIB
         $pages='maintenance';
         $datas=maintenance::where('nama','like',"%".$cari."%")
-        ->with('users')->where('users_id',Auth::user()->id)
+        ->with('users')
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.admin.maintenance.index',compact('datas','request','pages'));

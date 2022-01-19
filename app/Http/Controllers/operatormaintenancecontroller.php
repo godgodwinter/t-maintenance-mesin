@@ -18,7 +18,7 @@ class operatormaintenancecontroller extends Controller
     {
         #WAJIB
         $pages='maintenance';
-        $datas=maintenance::with('users')
+        $datas=maintenance::with('users')->where('users_id',Auth::user()->id)
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.operator.maintenance.index',compact('datas','request','pages'));
@@ -29,7 +29,7 @@ class operatormaintenancecontroller extends Controller
         #WAJIB
         $pages='maintenance';
         $datas=maintenance::where('nama','like',"%".$cari."%")
-        ->with('users')
+        ->with('users')->where('users_id',Auth::user()->id)
         ->paginate(Fungsi::paginationjml());
 
         return view('pages.operator.maintenance.index',compact('datas','request','pages'));

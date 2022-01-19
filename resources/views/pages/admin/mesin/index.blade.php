@@ -99,11 +99,11 @@ Mesin
                                             $status='Sedang Diperbaiki';
                                             $warna='success';
                                     }
+                                    if($jmlkerusakan!=0){
                                     if(($jmlkerusakan-$jmlperbaikan)==0){
                                             $status='Baik';
                                             $warna='info';
                                     }
-                                    if($jmlkerusakan!=0){
 
                                     if(($jmlkerusakan-$jmlperbaikan)==$jmlkerusakan){
                                             $status='Belum di perbaiki';

@@ -77,8 +77,8 @@
 [![Product Name Screen Shot][product-screenshot-ss1]](https://github.com/godgodwinter/t-maintenance-mesin)
 [![Product Name Screen Shot][product-screenshot-ss2]](https://github.com/godgodwinter/t-maintenance-mesin)
 [![Product Name Screen Shot][product-screenshot-ss3]](https://github.com/godgodwinter/t-maintenance-mesin)
-[![Product Name Screen Shot][product-screenshot-ss4]](https://github.com/godgodwinter/t-maintenance-mesin)
-[![Product Name Screen Shot][product-screenshot-ss5]](https://github.com/godgodwinter/t-maintenance-mesin)
+<!-- [![Product Name Screen Shot][product-screenshot-ss4]](https://github.com/godgodwinter/t-maintenance-mesin) -->
+<!-- [![Product Name Screen Shot][product-screenshot-ss5]](https://github.com/godgodwinter/t-maintenance-mesin) -->
 
 SI Maintenance Mesin
 
