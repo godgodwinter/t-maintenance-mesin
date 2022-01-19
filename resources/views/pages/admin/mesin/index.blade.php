@@ -103,6 +103,13 @@ Mesin
                                             $status='Baik';
                                             $warna='info';
                                     }
+                                    if($jmlkerusakan!=0){
+
+                                    if(($jmlkerusakan-$jmlperbaikan)==$jmlkerusakan){
+                                            $status='Belum di perbaiki';
+                                            $warna='warning';
+                                    }
+                                    }
 
 
                                     $lastmonitoring='-';
