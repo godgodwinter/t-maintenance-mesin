@@ -21,10 +21,10 @@ class pelaporankerusakandetail extends Model
 
         public function mesin()
         {
-            return $this->hasMany('App\Models\mesin');
+            return $this->belongsTo('App\Models\mesin');
         }
         public function pelaporankerusakan()
         {
-            return $this->hasMany('App\Models\pelaporankerusakan');
+            return $this->belongsTo('App\Models\pelaporankerusakan');
         }
 }

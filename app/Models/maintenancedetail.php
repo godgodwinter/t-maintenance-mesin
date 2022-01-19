@@ -14,6 +14,7 @@ class maintenancedetail extends Model
         use HasFactory;
 
         protected $fillable = [
+            'pelaporankerusakan_id',
             'maintenance_id',
             'mesin_id',
             'keterangan',
@@ -21,10 +22,14 @@ class maintenancedetail extends Model
 
         public function mesin()
         {
-            return $this->hasMany('App\Models\mesin');
+            return $this->belongsTo('App\Models\mesin');
         }
         public function maintenance()
         {
-            return $this->hasMany('App\Models\maintenance');
+            return $this->belongsTo('App\Models\maintenance');
+        }
+        public function pelaporankerusakan()
+        {
+            return $this->belongsTo('App\Models\pelaporankerusakan');
         }
 }

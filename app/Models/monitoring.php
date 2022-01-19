@@ -20,6 +20,6 @@ class monitoring extends Model
 
         public function users()
         {
-            return $this->hasMany('App\Models\User');
+            return $this->belongsTo('App\Models\User');
         }
 }

@@ -21,10 +21,10 @@ class monitoringdetail extends Model
 
         public function mesin()
         {
-            return $this->hasMany('App\Models\mesin');
+            return $this->belongsTo('App\Models\mesin');
         }
         public function monitoring()
         {
-            return $this->hasMany('App\Models\monitoring');
+            return $this->belongsTo('App\Models\monitoring');
         }
 }

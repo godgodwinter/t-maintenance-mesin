@@ -16,7 +16,6 @@ class CreateMaintenanceTable extends Migration
         Schema::create('maintenance', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tgl');
-            $table->string('perlaporan_id');
             $table->string('users_id');
             $table->softDeletes();
             $table->timestamps();

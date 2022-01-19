@@ -15,16 +15,11 @@ class maintenance extends Model
 
         protected $fillable = [
             'tgl',
-            'pelaporankerusakan_id',
             'users_id',
         ];
 
         public function users()
         {
-            return $this->hasMany('App\Models\User');
-        }
-        public function pelaporankerusakan()
-        {
-            return $this->hasMany('App\Models\pelaporankerusakan');
+            return $this->belongsTo('App\Models\User');
         }
 }
