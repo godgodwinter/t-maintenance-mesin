@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Gedung
+Mesin
 @endsection
 
 @push('before-script')
@@ -28,7 +28,7 @@ Gedung
             <div class="card-body">
 
 
-                        <form action="{{ route('gedung.cari') }}" method="GET">
+                        <form action="{{ route('mesin.cari') }}" method="GET">
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Gedung
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('gedung.create')}}"></x-button-create>
+                                <x-button-create link="{{route('mesin.create')}}"></x-button-create>
                         </form>
 
                     </div>
@@ -57,7 +57,10 @@ Gedung
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
                             <th >Nama</th>
-                            <th class="text-center">Lantai-ke</th>
+                            <th>Gedung</th>
+                            <th  class="text-center">Kategori</th>
+                            <th class="text-center">Status</th>
+                            <th  class="text-center">Monitoring Terakhir</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -70,11 +73,36 @@ Gedung
                                 <td>
                                     {{Str::limit($data->nama,25,' ...')}}
                                 </td>
-                                <td class="text-center">{{Str::limit($data->lantai,25,' ...')}}</td>
+                                <td>{{$data->gedung?$data->gedung->nama.', Lantai ke-'.$data->gedung->lantai:'Data tidak ditemukan'}}</td>
+                                <td  class="text-center">{{$data->kategori?$data->kategori->nama:'Data tidak ditemukan'}}</td>
+                                @php
+                                    $status='Ok';
+                                    $warna='info';
+                                    $jmlpelaporan=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    if($jmlpelaporan>0){
+                                        $periksa=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
+                                        if($periksa->keterangan==='rusak'){
+                                            $status='Rusak';
+                                            $warna='danger';
+                                        }elseif($periksa->keterangan==='diperbaiki'){
+                                            $status='Telah di perbaiki';
+                                            $warna='success';
+                                        }
+                                    }
+                                    $lastmonitoring='-';
+                                    $jmlmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    if($jmlmonitoring>0){
+                                    $getmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
+                                    $lastmonitoring=$getmonitoring->tgl;
+
+                                    }
+                                @endphp
+                                <td class="text-center"><button class="btn btn-sm btn-{{$warna}}">{{$status}}</button></td>
+                                <td class="text-center">{{$lastmonitoring}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <x-button-edit link="{{route('gedung.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('gedung.destroy',$data->id)}}" />
+                                    <x-button-edit link="{{route('mesin.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('mesin.destroy',$data->id)}}" />
                                 </td>
                             </tr>
                         @empty

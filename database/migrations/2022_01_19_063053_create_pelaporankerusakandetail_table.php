@@ -16,6 +16,7 @@ class CreatePelaporankerusakandetailTable extends Migration
         Schema::create('pelaporankerusakandetail', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('pelaporankerusakan_id');
+            $table->string('mesin_id');
             $table->string('keterangan')->nullable();
             $table->softDeletes();
             $table->timestamps();

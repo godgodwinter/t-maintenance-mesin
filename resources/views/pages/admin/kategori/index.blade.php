@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-Gedung
+Kategori
 @endsection
 
 @push('before-script')
@@ -28,7 +28,7 @@ Gedung
             <div class="card-body">
 
 
-                        <form action="{{ route('gedung.cari') }}" method="GET">
+                        <form action="{{ route('kategori.cari') }}" method="GET">
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
@@ -41,7 +41,7 @@ Gedung
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
-                                <x-button-create link="{{route('gedung.create')}}"></x-button-create>
+                                <x-button-create link="{{route('kategori.create')}}"></x-button-create>
                         </form>
 
                     </div>
@@ -57,7 +57,6 @@ Gedung
                         <tr style="background-color: #F1F1F1">
                             <th class="text-center py-2 babeng-min-row"> No</th>
                             <th >Nama</th>
-                            <th class="text-center">Lantai-ke</th>
                             <th  class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -70,11 +69,10 @@ Gedung
                                 <td>
                                     {{Str::limit($data->nama,25,' ...')}}
                                 </td>
-                                <td class="text-center">{{Str::limit($data->lantai,25,' ...')}}</td>
 
                                 <td class="text-center babeng-min-row">
-                                    <x-button-edit link="{{route('gedung.edit',$data->id)}}" />
-                                    <x-button-delete link="{{route('gedung.destroy',$data->id)}}" />
+                                    <x-button-edit link="{{route('kategori.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('kategori.destroy',$data->id)}}" />
                                 </td>
                             </tr>
                         @empty

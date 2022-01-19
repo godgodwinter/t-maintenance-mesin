@@ -71,6 +71,97 @@ class oneseeder extends Seeder
          ]);
 
 
+         DB::table('kategori')->insert([
+            'nama' => 'Komputer',
+            'prefix' => 'mesin',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+         DB::table('kategori')->insert([
+            'nama' => 'Percetakan',
+            'prefix' => 'mesin',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('gedung')->insert([
+            'nama' => 'Gama Tower',
+            'lantai' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('gedung')->insert([
+            'nama' => 'Gama Tower',
+            'lantai' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('gedung')->insert([
+            'nama' => 'Gama Tower',
+            'lantai' => '3',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+         DB::table('gedung')->insert([
+            'nama' => 'Wisma 46',
+            'lantai' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('gedung')->insert([
+            'nama' => 'Wisma 46',
+            'lantai' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('gedung')->insert([
+            'nama' => 'Sahid Sudirman Center',
+            'lantai' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+         DB::table('mesin')->insert([
+            'nama' => 'PC SERVER A ',
+            'kategori_id' => '1',
+            'gedung_id' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('mesin')->insert([
+            'nama' => 'PC SERVER B',
+            'kategori_id' => '1',
+            'gedung_id' => '2',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+         DB::table('mesin')->insert([
+            'nama' => 'PC SERVER C',
+            'kategori_id' => '1',
+            'gedung_id' => '3',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
+
+
+         DB::table('mesin')->insert([
+            'nama' => 'Printer A',
+            'kategori_id' => '2',
+            'gedung_id' => '1',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+         ]);
 
     }
 }
