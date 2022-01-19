@@ -30,7 +30,7 @@ Monitoring
             </div>
             <div class="card-body">
 
-                <form action="{{route('monitoring.update',$id->id)}}" method="post">
+                <form action="{{route('operator.monitoring.update',$id->id)}}" method="post">
                     @method('put')
                     @csrf
 
@@ -44,7 +44,7 @@ Monitoring
                         </div>
 
 
-                        <div class="form-group col-md-5 col-5 mt-0 ml-5">
+                        {{-- <div class="form-group col-md-5 col-5 mt-0 ml-5">
                             <label for="users_id">Petugas <code>*)</code></label>
 
                                 <select class="js-example-basic-single form-control-sm @error('users_id')
@@ -59,7 +59,7 @@ Monitoring
                               @error('kategori_id')<div class="invalid-feedback"> {{$message}}</div>
                               @enderror
 
-                          </div>
+                          </div> --}}
 
 
 
