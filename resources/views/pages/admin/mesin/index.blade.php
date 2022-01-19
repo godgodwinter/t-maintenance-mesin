@@ -76,29 +76,32 @@ Mesin
                                 <td>{{$data->gedung?$data->gedung->nama.', Lantai ke-'.$data->gedung->lantai:'Data tidak ditemukan'}}</td>
                                 <td  class="text-center">{{$data->kategori?$data->kategori->nama:'Data tidak ditemukan'}}</td>
                                 @php
-                                    $status='Ok';
+                                    $status='Baik';
                                     $warna='info';
-                                    $jmlpelaporan=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    $jmlpelaporan=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
                                     if($jmlpelaporan>0){
-                                        $periksa=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
-                                        if($periksa->keterangan==='rusak'){
+                                        $periksa=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
+                                        if($periksa->keterangan==='Rusak'){
                                             $status='Rusak';
                                             $warna='danger';
-                                        }elseif($periksa->keterangan==='diperbaiki'){
-                                            $status='Telah di perbaiki';
-                                            $warna='success';
+                                        }elseif($periksa->keterangan==='Hilang'){
+                                            $status='Hilang';
+                                            $warna='danger';
                                         }
                                     }
                                     $lastmonitoring='-';
+                                    $petugas='';
+                                    $oleh='';
                                     $jmlmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
                                     if($jmlmonitoring>0){
                                     $getmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
-                                    $lastmonitoring=$getmonitoring->tgl;
-
+                                    $lastmonitoring=$getmonitoring->monitoring?Fungsi::tanggalindo($getmonitoring->monitoring->tgl):'-';
+                                    $petugas=$getmonitoring->monitoring?$getmonitoring->monitoring->users->name:'-';
+                                    $oleh='-';
                                     }
                                 @endphp
                                 <td class="text-center"><button class="btn btn-sm btn-{{$warna}}">{{$status}}</button></td>
-                                <td class="text-center">{{$lastmonitoring}}</td>
+                                <td class="text-center">{{$lastmonitoring}} {{$oleh}} {{$petugas}}</td>
 
                                 <td class="text-center babeng-min-row">
                                     <x-button-edit link="{{route('mesin.edit',$data->id)}}" />
