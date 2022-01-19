@@ -28,6 +28,10 @@ use App\Http\Controllers\admintahunpenilaiancontroller;
 use App\Http\Controllers\admintahunpenilaiandetailcontroller;
 use App\Http\Controllers\adminuserscontroller;
 use App\Http\Controllers\landingcontroller;
+use App\Http\Controllers\operatormaintenancecontroller;
+use App\Http\Controllers\operatormesincontroller;
+use App\Http\Controllers\operatormonitoringcontroller;
+use App\Http\Controllers\operatorpelaporankerusakancontroller;
 use App\Http\Controllers\pelatihtahunpenilaiancontroller;
 use App\Http\Controllers\pemaintahunpenilaiancontroller;
 use App\Http\Controllers\profilecontroller;
@@ -157,6 +161,31 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::post('/admin/proses/cleartemp', [adminprosescontroller::class, 'cleartemp'])->name('cleartemp');
 
 
+
+    // menu operator
+
+
+    Route::get('/operator/mesin', [operatormesincontroller::class, 'index'])->name('operator.mesin');
+
+    //monitoring
+    Route::get('/operator/monitoring', [operatormonitoringcontroller::class, 'index'])->name('operator.monitoring');
+    Route::get('/operator/monitoring/{id}', [operatormonitoringcontroller::class, 'edit'])->name('operator.monitoring.edit');
+    Route::put('/operator/monitoring/{id}', [operatormonitoringcontroller::class, 'update'])->name('operator.monitoring.update');
+    Route::delete('/operator/monitoring/{id}', [operatormonitoringcontroller::class, 'destroy'])->name('operator.monitoring.destroy');
+    Route::get('/operator/datamonitoring/cari', [operatormonitoringcontroller::class, 'cari'])->name('operator.monitoring.cari');
+    Route::get('/operator/datamonitoring/create', [operatormonitoringcontroller::class, 'create'])->name('operator.monitoring.create');
+    Route::post('/operator/datamonitoring', [operatormonitoringcontroller::class, 'store'])->name('operator.monitoring.store');
+    Route::get('/operator/monitoring/{id}/detail', [operatormonitoringcontroller::class, 'detail'])->name('operator.monitoring.detail');
+    Route::get('/operator/monitoring/{id}/detail/create', [operatormonitoringcontroller::class, 'detailcreate'])->name('operator.monitoring.detail.create');
+    Route::post('/operator/monitoring/{id}/detail/store', [operatormonitoringcontroller::class, 'detailstore'])->name('operator.monitoring.detail.store');
+    Route::delete('/operator/monitoring/{id}/detail/destroy/{monitoringdetail}', [operatormonitoringcontroller::class, 'detaildestroy'])->name('operator.monitoring.detail.destroy');
+
+
+
+    Route::get('/operator/pelaporankerusakan', [operatorpelaporankerusakancontroller::class, 'index'])->name('operator.pelaporankerusakan');
+
+
+    Route::get('/operator/maintenance', [operatormaintenancecontroller::class, 'index'])->name('operator.maintenance');
 
 });
 
