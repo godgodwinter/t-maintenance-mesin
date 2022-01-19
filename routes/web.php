@@ -166,6 +166,7 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
 
 
     Route::get('/operator/mesin', [operatormesincontroller::class, 'index'])->name('operator.mesin');
+    Route::get('/operator/datamesin/cari', [operatormesincontroller::class, 'cari'])->name('operator.mesin.cari');
 
     //monitoring
     Route::get('/operator/monitoring', [operatormonitoringcontroller::class, 'index'])->name('operator.monitoring');
