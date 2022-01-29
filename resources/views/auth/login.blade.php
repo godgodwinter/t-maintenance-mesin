@@ -179,7 +179,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>BaemonTeamDev</span></strong>. All Rights Reserved
+        Copyright &copy; 2022  - Design By  <strong><span>Stenly Mandala</span></strong>. All Rights Reserved
       </div>
     </div>
   </footer><!-- End Footer -->
