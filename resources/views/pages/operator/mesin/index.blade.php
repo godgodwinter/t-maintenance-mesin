@@ -32,7 +32,7 @@ Mesin
                             <div class="d-flex bd-highlight mb-3 align-items-center">
 
                                 <div class="p-2 bd-highlight">
-                            <input type="text" class="babeng babeng-select  ml-0" name="cari">
+                                    <input type="text" class="babeng babeng-select  ml-0" name="cari">
                                 </div>
 
                                 <div class="p-2 bd-highlight">
@@ -41,6 +41,7 @@ Mesin
                                 </div>
 
                             <div class="ml-auto p-2 bd-highlight">
+                                {{-- <x-button-create link="{{route('mesin.create')}}"></x-button-create> --}}
                         </form>
 
                     </div>
@@ -60,6 +61,7 @@ Mesin
                             <th  class="text-center">Kategori</th>
                             <th class="text-center">Status</th>
                             <th  class="text-center">Monitoring Terakhir</th>
+                            {{-- <th  class="text-center">Aksi</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -97,11 +99,11 @@ Mesin
                                             $status='Sedang Diperbaiki';
                                             $warna='success';
                                     }
+                                    if($jmlkerusakan!=0){
                                     if(($jmlkerusakan-$jmlperbaikan)==0){
                                             $status='Baik';
                                             $warna='info';
                                     }
-                                    if($jmlkerusakan!=0){
 
                                     if(($jmlkerusakan-$jmlperbaikan)==$jmlkerusakan){
                                             $status='Belum di perbaiki';
@@ -126,6 +128,10 @@ Mesin
                                 </button></td>
                                 <td class="text-center">{{$lastmonitoring}} {{$oleh}} {{$petugas}}</td>
 
+                                {{-- <td class="text-center babeng-min-row">
+                                    <x-button-edit link="{{route('mesin.edit',$data->id)}}" />
+                                    <x-button-delete link="{{route('mesin.destroy',$data->id)}}" />
+                                </td> --}}
                             </tr>
                         @empty
                             <tr>
