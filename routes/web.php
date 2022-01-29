@@ -27,6 +27,10 @@ use App\Http\Controllers\adminsettingscontroller;
 use App\Http\Controllers\admintahunpenilaiancontroller;
 use App\Http\Controllers\admintahunpenilaiandetailcontroller;
 use App\Http\Controllers\adminuserscontroller;
+use App\Http\Controllers\kepalagedungmaintenancecontroller;
+use App\Http\Controllers\kepalagedungmesincontroller;
+use App\Http\Controllers\kepalagedungmonitoringcontroller;
+use App\Http\Controllers\kepalagedungpelaporankerusakancontroller;
 use App\Http\Controllers\landingcontroller;
 use App\Http\Controllers\operatormaintenancecontroller;
 use App\Http\Controllers\operatormesincontroller;
@@ -207,6 +211,30 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/operator/maintenance/{id}/detail/create', [operatormaintenancecontroller::class, 'detailcreate'])->name('operator.maintenance.detail.create');
     Route::post('/operator/maintenance/{id}/detail/store', [operatormaintenancecontroller::class, 'detailstore'])->name('operator.maintenance.detail.store');
     Route::delete('/operator/maintenance/{id}/detail/destroy/{maintenancedetail}', [operatormaintenancecontroller::class, 'operator.detaildestroy'])->name('operator.maintenance.detail.destroy');
+
+
+
+    // menu kepalagedung
+
+
+    Route::get('/kepalagedung/mesin', [kepalagedungmesincontroller::class, 'index'])->name('kepalagedung.mesin');
+    Route::get('/kepalagedung/datamesin/cari', [kepalagedungmesincontroller::class, 'cari'])->name('kepalagedung.mesin.cari');
+
+    //monitoring
+    Route::get('/kepalagedung/monitoring', [kepalagedungmonitoringcontroller::class, 'index'])->name('kepalagedung.monitoring');
+    Route::get('/kepalagedung/datamonitoring/cari', [kepalagedungmonitoringcontroller::class, 'cari'])->name('kepalagedung.monitoring.cari');
+    Route::get('/kepalagedung/monitoring/{id}/detail', [kepalagedungmonitoringcontroller::class, 'detail'])->name('kepalagedung.monitoring.detail');
+
+
+
+    Route::get('/kepalagedung/pelaporankerusakan', [kepalagedungpelaporankerusakancontroller::class, 'index'])->name('kepalagedung.pelaporankerusakan');
+    Route::get('/kepalagedung/datapelaporankerusakan/cari', [kepalagedungpelaporankerusakancontroller::class, 'cari'])->name('kepalagedung.pelaporankerusakan.cari');
+    Route::get('/kepalagedung/pelaporankerusakan/{id}/detail', [kepalagedungpelaporankerusakancontroller::class, 'detail'])->name('kepalagedung.pelaporankerusakan.detail');
+
+
+    Route::get('/kepalagedung/maintenance', [kepalagedungmaintenancecontroller::class, 'index'])->name('kepalagedung.maintenance');
+    Route::get('/kepalagedung/datamaintenance/cari', [kepalagedungmaintenancecontroller::class, 'cari'])->name('kepalagedung.maintenance.cari');
+    Route::get('/kepalagedung/maintenance/{id}/detail', [kepalagedungmaintenancecontroller::class, 'detail'])->name('kepalagedung.maintenance.detail');
 
 });
 

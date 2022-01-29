@@ -62,15 +62,15 @@
 @else
 {{-- kepalagedung --}}
 {{-- @include('includes.sidebar_pelatih') --}}
-<li {{ $pages == 'mesin' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.mesin')}}"><i class="fas fa-cash-register"></i><span>Mesin </span></a></li>
+<li {{ $pages == 'mesin' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kepalagedung.mesin')}}"><i class="fas fa-cash-register"></i><span>Mesin </span></a></li>
 
 
-<li {{ $pages == 'monitoring' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.monitoring')}}"><i class="fas fa-cash-register"></i><span>Monitoring </span></a></li>
+<li {{ $pages == 'monitoring' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kepalagedung.monitoring')}}"><i class="fas fa-cash-register"></i><span>Monitoring </span></a></li>
 
-<li {{ $pages == 'pelaporankerusakan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.pelaporankerusakan')}}"><i class="fas fa-exclamation-triangle"></i><span>Kerusakan </span></a></li>
+<li {{ $pages == 'pelaporankerusakan' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kepalagedung.pelaporankerusakan')}}"><i class="fas fa-exclamation-triangle"></i><span>Kerusakan </span></a></li>
 
 
-<li {{ $pages == 'maintenance' ? 'class=active' : '' }}><a class="nav-link" href="{{route('operator.maintenance')}}"><i class="fas fa-screwdriver"></i><span>Maintenance </span></a></li>
+<li {{ $pages == 'maintenance' ? 'class=active' : '' }}><a class="nav-link" href="{{route('kepalagedung.maintenance')}}"><i class="fas fa-screwdriver"></i><span>Maintenance </span></a></li>
 
 @endif
         </ul>
