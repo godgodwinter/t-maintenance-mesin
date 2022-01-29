@@ -154,14 +154,14 @@
                 </div>
               </div>
 
-              {{-- <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
+              <div class="col-lg-4 col-md-5 col-6 d-md-flex align-items-md-stretch">
                 <div class="count-box pb-5 pt-0 pt-lg-5">
                     <h5>Sebagai : Kepala Gedung</h5>
                     <label  for="inputPhone">Username : kepalagedung</label>
                     <br>
                     <label  for="inputPhone">Password : kepalagedung</label>
                 </div>
-              </div> --}}
+              </div>
 
             </div>
           </div>
