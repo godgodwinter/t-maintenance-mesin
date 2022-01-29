@@ -206,7 +206,7 @@ Route::group(['middleware' => ['auth:web', 'verified']], function() {
     Route::get('/operator/maintenance/{id}/detail', [operatormaintenancecontroller::class, 'detail'])->name('operator.maintenance.detail');
     Route::get('/operator/maintenance/{id}/detail/create', [operatormaintenancecontroller::class, 'detailcreate'])->name('operator.maintenance.detail.create');
     Route::post('/operator/maintenance/{id}/detail/store', [operatormaintenancecontroller::class, 'detailstore'])->name('operator.maintenance.detail.store');
-    Route::delete('/operator/maintenance/{id}/detail/destroy/{maintenancedetail}', [operatormaintenancecontroller::class, 'operator.detaildestroy'])->name('maintenance.detail.destroy');
+    Route::delete('/operator/maintenance/{id}/detail/destroy/{maintenancedetail}', [operatormaintenancecontroller::class, 'operator.detaildestroy'])->name('operator.maintenance.detail.destroy');
 
 });
 
