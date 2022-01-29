@@ -45,7 +45,7 @@ Tambah pelaporankerusakan Detail
                             @enderror" name="mesin_id"  style="width: 75%" required>
                                 <option disabled selected value=""> Pilih Mesin</option>
                                 @foreach ($mesin as $t)
-                                    <option value="{{ $t->id }}"> {{ $t->mesin?$t->mesin->nama:'Data tidak ditemukan' }}</option>
+                                    <option value="{{ $t->mesin->id }}">  {{ $t->mesin?$t->mesin->nama:'Data tidak ditemukan' }}</option>
                                 @endforeach
                               </select>
 

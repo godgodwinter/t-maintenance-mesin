@@ -97,6 +97,7 @@ class adminmaintenancecontroller extends Controller
     public function destroy(maintenance $id){
 
         maintenance::destroy($id->id);
+        maintenancedetail::where('maintenance_id', $id->id)->delete();
         return redirect()->route('maintenance')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }

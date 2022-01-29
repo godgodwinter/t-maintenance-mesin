@@ -97,6 +97,7 @@ class adminpelaporankerusakancontroller extends Controller
     public function destroy(pelaporankerusakan $id){
 
         pelaporankerusakan::destroy($id->id);
+        pelaporankerusakandetail::where('pelaporankerusakan_id', $id->id)->delete();
         return redirect()->route('pelaporankerusakan')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }
@@ -127,7 +128,7 @@ class adminpelaporankerusakancontroller extends Controller
    public function detailstore(pelaporankerusakan $id,Request $request)
    {
 
-       // dd($request);
+    //    dd($request);
            $request->validate([
                'keterangan'=>'required',
 
