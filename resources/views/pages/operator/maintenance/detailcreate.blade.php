@@ -45,8 +45,11 @@ Tambah Maintenance
                             @enderror" name="pelaporankerusakandetail_id"  style="width: 75%" >
                                 <option disabled selected value=""> Pilih Mesin</option>
                                 @foreach ($mesin as $t)
+                                @if ($t->mesin)
                                 <option value="{{ $t->id }}">{{ $t->mesin?$t->mesin->id:"" }} {{ $t->mesin?$t->mesin->nama. ' - '. $t->keterangan :'Data tidak ditemukan' }}</option>
-                                @endforeach
+                                @endif
+                                    {{-- <option value="{{ $t->id }}">{{ $t->mesin?$t->mesin->id:"" }} {{ $t->mesin?$t->mesin->nama. ' - '. $t->keterangan :'Data tidak ditemukan' }}</option> --}}
+                              @endforeach
                               </select>
 
                           @error('pelaporankerusakandetail_id')<div class="invalid-feedback"> {{$message}}</div>
