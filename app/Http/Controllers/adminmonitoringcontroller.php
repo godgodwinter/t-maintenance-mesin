@@ -116,7 +116,7 @@ class adminmonitoringcontroller extends Controller
         $this->queryid=$id->id;
         $pages='monitoring';
         $mesin=mesin::whereNotIn('id',function($query){
-                $query->select('mesin_id')->from('monitoringdetail')->where('monitoring_id',$this->queryid);
+                $query->select('mesin_id')->from('monitoringdetail')->where('deleted_at',NULL)->where('monitoring_id',$this->queryid);
             })->get();
             // dd($mesin);
         return view('pages.admin.monitoring.detailcreate',compact('pages','id','mesin','request'));
