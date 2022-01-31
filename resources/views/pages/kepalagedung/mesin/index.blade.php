@@ -115,8 +115,8 @@ Mesin
                                     $oleh='';
                                     $jmlmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
                                     if($jmlmonitoring>0){
-                                    $getmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
-                                    $lastmonitoring=$getmonitoring->monitoring?Fungsi::tanggalindo($getmonitoring->monitoring->tgl):'-';
+                                        $getmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->first();
+                                  $lastmonitoring=$getmonitoring->monitoring?Fungsi::tanggalindo($getmonitoring->monitoring->tgl):'-';
                                     $petugas=$getmonitoring->monitoring?$getmonitoring->monitoring->users->name:'-';
                                     $oleh='-';
                                     }
