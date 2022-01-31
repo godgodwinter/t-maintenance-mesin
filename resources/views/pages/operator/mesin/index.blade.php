@@ -78,9 +78,9 @@ Mesin
                                 @php
                                     $status='Baik';
                                     $warna='info';
-                                    $jmlpelaporan=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    $jmlpelaporan=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->count();
                                     if($jmlpelaporan>0){
-                                        $periksa=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->first();
+                                        $periksa=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->first();
                                         if($periksa->keterangan==='Rusak'){
                                             $status='Rusak';
                                             $warna='danger';
@@ -91,9 +91,9 @@ Mesin
                                     }
 
 
-                                    $jmlkerusakan=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    $jmlkerusakan=\App\Models\pelaporankerusakandetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->count();
 
-                                    $jmlperbaikan=\App\Models\maintenancedetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    $jmlperbaikan=\App\Models\maintenancedetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->count();
 
                                     if(($jmlkerusakan-$jmlperbaikan)>0){
                                             $status='Sedang Diperbaiki';
@@ -115,7 +115,7 @@ Mesin
                                     $lastmonitoring='-';
                                     $petugas='';
                                     $oleh='';
-                                    $jmlmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at')->count();
+                                    $jmlmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->count();
                                     if($jmlmonitoring>0){
                                         $getmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->first();
                                         $lastmonitoring=$getmonitoring->monitoring?Fungsi::tanggalindo($getmonitoring->monitoring->tgl):'-';
