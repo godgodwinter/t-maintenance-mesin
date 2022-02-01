@@ -97,6 +97,7 @@ class operatorpelaporankerusakancontroller extends Controller
     public function destroy(pelaporankerusakan $id){
 
         pelaporankerusakan::destroy($id->id);
+        pelaporankerusakandetail::where('pelaporankerusakan_id', $id->id)->delete();
         return redirect()->route('operator.pelaporankerusakan')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }

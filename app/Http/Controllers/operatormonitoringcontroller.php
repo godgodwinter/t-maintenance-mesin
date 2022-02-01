@@ -98,6 +98,7 @@ class operatormonitoringcontroller extends Controller
     public function destroy(monitoring $id){
 
         monitoring::destroy($id->id);
+        monitoringdetail::where('monitoring_id', $id->id)->delete();
         return redirect()->route('operator.monitoring')->with('status','Data berhasil dihapus!')->with('tipe','warning')->with('icon','fas fa-feather');
 
     }
