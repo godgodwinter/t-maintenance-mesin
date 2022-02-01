@@ -109,6 +109,12 @@ Mesin
                                 }
 
 
+                                    }elseif($periksa->keterangan==='Hilang'){
+                                        $status='Hilang';
+                                        $warna='danger';
+                                    }
+
+
                                 $jmlmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->count();
                                 if($jmlmonitoring>0){
                                 $getmonitoring=\App\Models\monitoringdetail::where('mesin_id',$data->id)->orderBy('created_at','desc')->first();
@@ -116,10 +122,6 @@ Mesin
                                 $petugas=$getmonitoring->monitoring?$getmonitoring->monitoring->users->name:'-';
                                 $oleh='-';
                                 }
-                                    }elseif($periksa->keterangan==='Hilang'){
-                                        $status='Hilang';
-                                        $warna='danger';
-                                    }
                                 }
 
 
